@@ -41,7 +41,7 @@ def modify_content_between_strings(filename, string1, string2, new_content):
             print(color_green + "File updated successfully." + color_reset)
             print(f"Number of lines replaced: {num_replaced_lines}")
             print("Replaced lines:")
-            print("---")
+            print()
             print("".join(replaced_lines))
         else:
             print(color_red + f"Could not find both '{string1}' and '{string2}' in the file." + color_reset)
