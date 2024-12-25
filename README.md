@@ -29,4 +29,5 @@ Flsun Super Racer prime line outside of the print bed - OrcaSlicer
 2. Slice your model using OrcaSlicer and save the gcode
 3. Open the Terminal
 4. ```cd``` to download location of the script
-5. Run the script locally from the terminal ```python3 post_process.py -file {path/to/file/filename}.gcode```
+5. Run the script locally from the terminal 
+```python3 post_process.py -file {path/to/file/filename}.gcode```
