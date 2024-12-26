@@ -19,6 +19,13 @@ This guide is specifically designed for **macOS users** leveraging the macOS Ter
 
 ---
 
+## **Background changes made by the Script in G-code**
+<p align="left">
+  <img width="400" src="https://github.com/Krosko/flsun-prime-line-fix/blob/main/images/diff.png">
+</p>
+
+---
+
 ## **Features**
 - Automatically detects and replaces the incorrect prime line routine in the G-code.  
 - Inserts a new prime line routine tailored for the Flsun Super Racer.  
