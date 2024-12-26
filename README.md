@@ -67,10 +67,13 @@ Alternatively, download the `post_process.py` file from the repository and save 
 2. Navigate to the folder containing the script:  
    `cd /path/to/folder/containing/script`
 3. Run the script with the following command, replacing `/path/to/file/filename.gcode` with the full path to your `.gcode` file:  
-   `python3 post_process.py -f /path/to/file/filename.gcode -t /path/to/target/location/filename.gcode`
+   `python3 post_process.py -f /path/to/file/filename.gcode`
+   `-t /path/to/target/location/filename.gcode` can be added behind the command to define the target location of the processed `.gcode` file  
 4. If successful, you will see a message like:  
    `File updated successfully.`  
    `Number of lines replaced: X`
+
+Run `python3 post_process.py --help` for informations about the `-f` and `-t` flags 
 
 ---
 
