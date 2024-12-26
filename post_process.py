@@ -2,9 +2,9 @@ import argparse
 
 color_green = "\033[0;32m"
 color_red = "\033[0;31m"  
-color_reset = "\033[0m" 
+color_reset = "\033[0m"
 
-def modify_content_between_strings(filename, string1, string2, new_content):
+def modify_content_between_strings(filename, string1, string2, new_content, output_path):
     try:
         with open(filename, 'r') as file:
             lines = file.readlines()
@@ -33,12 +33,13 @@ def modify_content_between_strings(filename, string1, string2, new_content):
                 + lines[end_index:]  # Keep everything from string2 onward
             )
 
-            # Write the updated lines back to the file
-            with open(filename, 'w') as file:
+            # Write the updated lines to the specified output file
+            with open(output_path, 'w') as file:
                 file.writelines(updated_lines)
 
             # Output details
             print(color_green + "File updated successfully." + color_reset)
+            print(f"Output saved to: {output_path}")
             print(f"Number of lines replaced: {num_replaced_lines}")
             print("Replaced lines:")
             print()
@@ -49,10 +50,15 @@ def modify_content_between_strings(filename, string1, string2, new_content):
     except Exception as e:
         print(color_red + f"An error occurred: {e}" + color_reset)
 
+# Define the arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("-file", "--filename", dest="filename", default="file.gcode", help="Name of the file")
+parser.add_argument("-f", "--filename", dest="filename", default="file.gcode", help="Name of the G-code file")
+parser.add_argument("-t", "--target", dest="location", default=None, help="Saving path of the processed file")
 args = parser.parse_args()
+
+# Assign the arguments to variables
 filename = args.filename
+location = args.location or "processed_" + filename
 
 string1 = '; Prime line routine'
 string2 = 'Display: Printing started...'
@@ -70,5 +76,4 @@ M117 Preparing to print
 M221 S{if layer_height<0.075}100{else}95{endif}
 M300 S40 P10 ; chirp"""
 
-modify_content_between_strings(filename, string1, string2, new_content)
-
+modify_content_between_strings(filename, string1, string2, new_content, location)
