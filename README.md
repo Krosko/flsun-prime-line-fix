@@ -1,33 +1,89 @@
-# flsun-prime-line-fix
-Flsun Super Racer prime line outside of the print bed - OrcaSlicer
+# **Flsun Super Racer Prime Line Fix**  
+Fix the issue of the prime line being generated outside of the print bed in OrcaSlicer when using the Flsun Super Racer.
 
-[issue:](https://github.com/SoftFever/OrcaSlicer/issues/5583)
+---
 
-* OrcaSlicer
-* Flsun Super Racer
-* Prime line outside of print bed
+## **Overview**  
+When slicing with OrcaSlicer for the Flsun Super Racer, the default G-code configuration may result in a prime line placed outside the printable area. This script provides a post-processing solution to adjust the prime line's location within the valid print bed, ensuring smooth operation.
 
-### Post processing python script to fix the issue
+This guide is specifically designed for **macOS users** leveraging the macOS Terminal to run the script.
 
-<br>
+---
 
-**gcode from orca slicer**
-<p align="left">
-  <img width="400" src="https://github.com/Krosko/flsun-prime-line-fix/blob/main/images/gcode_before.png">
-</p>
+## **Before and After**
+### **G-code Before Processing**
+![G-code Before](https://github.com/Krosko/flsun-prime-line-fix/blob/main/images/gcode_before.png)
 
-**post processed gcode with this script**
-<p align="left">
-  <img width="400" src="https://github.com/Krosko/flsun-prime-line-fix/blob/main/images/gcode_after.png">
-</p>
+### **G-code After Processing**
+![G-code After](https://github.com/Krosko/flsun-prime-line-fix/blob/main/images/gcode_after.png)
 
-<br>
+---
 
-### Apply
+## **Features**
+- Automatically detects and replaces the incorrect prime line routine in the G-code.  
+- Inserts a new prime line routine tailored for the Flsun Super Racer.  
+- Supports easy customization of the replacement G-code.  
+- Provides detailed feedback in the terminal, including the number of lines replaced.  
 
-1. Download the script from the github
-2. Slice your model using OrcaSlicer and save the gcode
-3. Open the Terminal
-4. ```cd``` to download location of the script
-5. Run the script locally from the terminal:
-6. ```python3 post_process.py -file {path/to/file/filename}.gcode```
+---
+
+## **Requirements**
+1. **macOS** or other os with Terminal access.
+2. Python 3.x installed.  
+   *You can install Python 3 via [Homebrew](https://brew.sh/):*  
+   `brew install python3`
+3. OrcaSlicer installed and configured for the Flsun Super Racer.  
+
+---
+
+## **Installation & Usage**
+
+> Steps for Mac, commands may be slightly different on other operating systems
+
+### **Step 1: Clone or Download the Script**
+Download the script directly from this repository:  
+`git clone https://github.com/Krosko/flsun-prime-line-fix.git`  
+`cd flsun-prime-line-fix`
+
+Alternatively, download the `post_process.py` file from the repository and save it to a convenient location.
+
+---
+
+### **Step 2: Slice Your Model**
+1. Open **OrcaSlicer** and load your 3D model.  
+2. Slice the model and save the resulting `.gcode` file to a known location.  
+
+---
+
+### **Step 3: Run the Script in Terminal**
+1. Open **Terminal** on macOS.  
+2. Navigate to the folder containing the script:  
+   `cd /path/to/folder/containing/script`
+3. Run the script with the following command, replacing `/path/to/file/filename.gcode` with the full path to your `.gcode` file:  
+   `python3 post_process.py -file /path/to/file/filename.gcode`
+4. If successful, you will see a message like:  
+   `File updated successfully.`  
+   `Number of lines replaced: X`
+
+---
+
+### **Step 4: Print Your Model**
+1. Transfer the processed `.gcode` file to your printer via SD card or another method.  
+2. Start your print and verify that the prime line is now correctly placed within the print bed.  
+
+---
+
+## **Customization**
+If you'd like to modify the new prime line routine, you can edit the `new_content` variable in the `post_process.py` script. Ensure the G-code commands are compatible with the Flsun Super Racer and OrcaSlicer.
+
+---
+
+## **Contributing**
+We welcome contributions to improve the script or documentation! Feel free to open an issue or submit a pull request.
+
+---
+
+### **Support**
+If you encounter any issues or have questions, please open an issue in this repository.  
+
+Happy Printing! 🎉  
