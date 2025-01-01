@@ -63,6 +63,9 @@ Alternatively, download the `post_process.py` file from the repository and save 
 ---
 
 ### **Step 3: Run the Script in Terminal**
+
+#### Option 1
+
 1. Open **Terminal** on macOS.  
 2. Navigate to the folder containing the script:  
    `cd /path/to/folder/containing/script`
@@ -74,6 +77,10 @@ Alternatively, download the `post_process.py` file from the repository and save 
    `Number of lines replaced: X`
 
 Run `python3 post_process.py --help` for informations about the `-f` and `-t` flags 
+
+#### Option 1
+
+1. Add the path to python and the executable script to the **Post-processing Scripts** section of the OrcaSlicer
 
 ---
 
